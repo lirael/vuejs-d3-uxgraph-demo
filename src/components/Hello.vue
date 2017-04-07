@@ -21,17 +21,22 @@
     <div class="row">
       <linecharts name="linecharts"></linecharts>
     </div>
+    <div class="row">
+      <barcharts></barcharts>
+    </div>
   </div>
 </template>
 
 <script>
 import Sparklines from './Sparklines.vue'
 import Linecharts from './Linecharts.vue'
+import Barcharts from './Barcharts.vue'
 export default {
   name: 'hello',
   components: {
     'sparklines': Sparklines,
-    'linecharts': Linecharts
+    'linecharts': Linecharts,
+    'barcharts': Barcharts 
   },
   data () {
     return {

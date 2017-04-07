@@ -1,7 +1,10 @@
 <template>
   <div id="sparklines">
     <h2>{{ msg }}</h2>
-    <div class="col-sm-6 col-sm-offset-3" id="sCanvas" style="height:150px"></div>
+    <div class="col-sm-6 col-sm-offset-3"  style="height:150px">
+      <div class="svg-container" id="sCanvas">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,7 +27,10 @@ export default {
     createSparkline(id, data) {
       var width = 500
       var height = 65
-      var canvas = d3.select(id).append('svg').attr('width', '100%').attr('height', '100%')
+      var canvas = d3.select(id).append('svg')
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 500 65")
+        .classed("svg-content", true)
       var x = d3.scaleLinear().domain([0, 48]).range([0, width])
       var y = d3.scaleLinear().domain([0, 10]).range([height, 0])
       var line = d3.line()
@@ -51,6 +57,20 @@ export default {
   stroke: steelblue;
   stroke-width: 1;
   fill: none;
+}
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 </style>

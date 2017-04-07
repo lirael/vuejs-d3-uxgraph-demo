@@ -2,7 +2,7 @@
   <div id="linecharts">
     <h2>{{ msg }}</h2>
     <div class="col-sm-6 col-sm-offset-3" style="">
-      <div class="svg-line-container" id="lCanvas">
+      <div class="svg-line-container" id="bCanvas">
       </div>
     </div>
   </div>
@@ -16,12 +16,12 @@ export default {
   name: 'sparklines',
   data () {
     return {
-      msg: 'Line charts',
+      msg: 'Bar charts',
       data: [3, 6, 5, 3, 6, 5, 7, 5, 2, 1, 3, 4, 6, 9, 7, 9]
     }
   },
   mounted () {
-    this.createLine('#lCanvas', this.data)
+    this.createLine('#Canvas', this.data)
   },
   methods: {
     createLine(id, data) {
