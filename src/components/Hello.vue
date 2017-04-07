@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div id="hello">
     </br>
     <h1>{{ msg }}</h1>
     <h2>Graphs list</h2>
@@ -15,16 +15,23 @@
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
     </ul>
-    <sparklines name="sparklines"></sparklines>
+    <div class="row">
+      <sparklines name="sparklines"></sparklines>
+    </div>
+    <div class="row">
+      <linecharts name="linecharts"></linecharts>
+    </div>
   </div>
 </template>
 
 <script>
 import Sparklines from './Sparklines.vue'
+import Linecharts from './Linecharts.vue'
 export default {
   name: 'hello',
   components: {
-    'sparklines': Sparklines
+    'sparklines': Sparklines,
+    'linecharts': Linecharts
   },
   data () {
     return {

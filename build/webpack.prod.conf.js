@@ -31,7 +31,12 @@ var webpackConfig = merge(baseWebpackConfig, {
       // Absolute path to compiled SPA
       path.join(__dirname, '../docs'),
       // List of routes to prerender
-      [ '/']
+      [ '/'],
+      {
+        captureAfterDocumentEvent: 'ender-event',
+        captureAfterElementExists: '#hello',
+        captureAfterTime: 5000
+      }
     ),
     new webpack.DefinePlugin({
       'process.env': env

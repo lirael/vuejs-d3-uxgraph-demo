@@ -7,9 +7,13 @@ import router from './router'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+ var root = new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App }
+})
+
+document.addEventListener('ender-event', function () {
+  root.$mount('#app')
 })
