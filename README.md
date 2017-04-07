@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# lib
+# vuejs-d3-ux
+## Vue / D3 UX graphs components
 
 > A Vue.js project
 
@@ -18,9 +18,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-=======
-# vuejs-d3-ux
-Vue / D3 UX graphs components
->>>>>>> be489e4b9813375f0ced00cce0b1571fcbc1baab
