@@ -4,10 +4,10 @@
     <h1>{{ msg }}</h1>
     <h2>Graphs list</h2>
     <ul>
-      <li><a href="#sparklines">Sparklines</a></li>
-      <li><a href="#linecharts">Line chart</a></li>
-      <li><a href="#barcharts">Bar chart</a></li>
-      <li><a href="#bulletcharts">Bullet chart</a></li>
+      <li><a href="/">Sparklines</a></li>
+      <li><a href="/">Line chart</a></li>
+      <li><a href="/">Bar chart</a></li>
+      <li><a href="/s">Bullet chart</a></li>
     </ul>
     <h2>Ecosystem</h2>
     <ul>
