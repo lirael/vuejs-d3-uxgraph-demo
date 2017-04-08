@@ -6,8 +6,10 @@
     <ul>
       <li><a href="/">Sparklines</a></li>
       <li><a href="/">Line chart</a></li>
-      <li><a href="/">Bar chart</a></li>
-      <li><a href="/s">Bullet chart</a></li>
+      <li><a href="/">Vertical bar chart</a></li>
+      <li><a href="/">Horizontal bar chart</a></li>
+      <li><a href="/">Staked bar chart</a></li>
+
     </ul>
     <h2>Ecosystem</h2>
     <ul>
@@ -24,6 +26,9 @@
     <div class="row">
       <barcharts></barcharts>
     </div>
+    <div class="row">
+      <horizontal-barcharts></horizontal-barcharts>
+    </div>
   </div>
 </template>
 
@@ -31,12 +36,14 @@
 import Sparklines from './Sparklines.vue'
 import Linecharts from './Linecharts.vue'
 import Barcharts from './Barcharts.vue'
+import HorizontalBarcharts from './HorBarcharts.vue'
 export default {
   name: 'hello',
   components: {
     'sparklines': Sparklines,
     'linecharts': Linecharts,
-    'barcharts': Barcharts 
+    'barcharts': Barcharts,
+    'horizontal-barcharts': HorizontalBarcharts 
   },
   data () {
     return {
