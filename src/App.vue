@@ -10,7 +10,7 @@
     </div>
     <div class="row">
       <p style="float:right">
-        Developed by: Olena Pastushenko
+        Developed by: <a href="https://github.com/lirael">Olena Pastushenko</a>
       </p>
     </div>
   </div>
