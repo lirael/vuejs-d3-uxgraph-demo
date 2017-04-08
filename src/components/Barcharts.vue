@@ -18,18 +18,10 @@ export default {
     return {
       msg: 'Vertical bar charts',
       data: [
-        { "period": "January", "fail": 23, "success": 57 },
-        { "period": "February", "fail": 23, "success": 78 },
-        { "period": "March", "fail": 64, "success": 96 },
-        { "period": "April", "fail": 21, "success": 54 },
-        { "period": "May", "fail":0, "success":31 },
-        { "period": "June", "fail":45, "success":78 },
-        { "period": "July", "fail":63, "success":63 },
-        { "period": "August", "fail":85, "success":74 },
-        { "period": "September", "fail":85, "success":63 },
-        { "period": "October", "fail":68, "success":53 },
-        { "period": "November", "fail":96, "success":10 },
-        { "period": "December", "fail":50, "success":50 }
+        { "period": "West", "fail": 23, "success": 57 },
+        { "period": "East", "fail": 23, "success": 78 },
+        { "period": "North", "fail": 64, "success": 96 },
+        { "period": "South", "fail": 21, "success": 54 }
       ]
     }
   },
@@ -53,15 +45,17 @@ export default {
         .classed("svg-content", true)
         .append("svg:g")
 
-      var x = d3.scaleBand().rangeRound([0, width]).padding(0.2)
-        .domain(d3.entries(csv).map(function (d) {return d.key}))
+      var x = d3.scaleBand()
+        .domain(d3.entries(csv).map(function (d) {return d.value.period}))
+        .rangeRound([0, width]).padding(0.2)
+
       var y = d3.scaleLinear()
         // .domain([0, d3.max(csv, function (d) {return d.dollars})])
         .domain([0, 100])
         .range([height, 0])
    
       // Define the axes
-      var xAx = d3.axisBottom(x)
+      var xAx = d3.axisBottom(x).tickSize(0)
       var yAx = d3.axisLeft(y)
 
       canvas
@@ -81,7 +75,7 @@ export default {
         .append("rect")
         .attr("transform", "translate(" + margins.left + ",0)")
         .attr('class', 'success')
-        .attr("x", function (d) { return x(d.key) })
+        .attr("x", function (d) { return x(d.value.period) })
         .attr("width", x.bandwidth()/2)
         .attr("y", function (d) { return y(d.value.success) })
         .attr("height", function (d) { return height - y(d.value.success) })
@@ -92,7 +86,7 @@ export default {
         .append("rect")
         .attr("transform", "translate(" + margins.left + ",0)")
         .attr("class", "fail")
-        .attr("x", function(d) { return x(d.key) + x.bandwidth()/2 })
+        .attr("x", function(d) { return x(d.value.period) + x.bandwidth()/2 })
         .attr("width", x.bandwidth()/2)
         .attr("y", function(d) { return y(d.value.fail); })
         .attr("height", function(d) { return height - y(d.value.fail); })

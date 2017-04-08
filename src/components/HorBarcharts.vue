@@ -31,9 +31,6 @@ export default {
   },
   methods: {
     createLine(id, csv) {
-      csv = csv.sort(function (a, b) {
-        return d3.ascending(a.value, b.value);
-      })
 
       var canvasWidth = 500
       var canvasHeight = 200
@@ -47,11 +44,13 @@ export default {
         .attr("viewBox", "0 0 500 350")
         .classed("svg-content", true)
 
-      var y = d3.scaleBand().rangeRound([height, 0]).padding(0.2)
-        .domain(d3.entries(csv).map(function (d) {return d.value.letter}))
       var x = d3.scaleLinear()
         .domain([0, d3.max(csv, function(d) { return d.frequency; })])
         .rangeRound([0, width])
+
+      var y = d3.scaleBand()
+        .domain(d3.entries(csv).map(function (d) {return d.value.letter}))
+        .rangeRound([height, 0]).padding(0.2)
    
       // Define the axes
       var yAx = d3.axisLeft(y).tickSize(0)
