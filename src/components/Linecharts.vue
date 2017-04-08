@@ -83,6 +83,7 @@ export default {
 .spark {
   stroke: steelblue;
   stroke-width: 1;
+  fill: none;
 }
 
 .svg-line-container {

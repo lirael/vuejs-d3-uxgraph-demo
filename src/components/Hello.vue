@@ -73,3 +73,17 @@ a {
   color: #42b983;
 }
 </style>
+<style type="text/css">
+.settings input, settings .button{
+}
+button{
+  background-color: #00897b;
+  border: none;
+  color: white;
+  border-radius: 3px;
+}
+button.expanded{
+  width: 100%;
+  margin-top: 1.45em;
+}
+</style>
