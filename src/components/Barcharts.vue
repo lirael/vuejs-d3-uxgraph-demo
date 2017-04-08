@@ -49,7 +49,7 @@ export default {
 
       var canvas = d3.select(id).append('svg')
         .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 500 350")
+        .attr("viewBox", "0 0 500 400")
         .classed("svg-content", true)
         .append("svg:g")
 
@@ -67,17 +67,19 @@ export default {
       canvas
         .append('g')
         .attr('class', 'spark-y axis')
+        .attr("transform", "translate(" + margins.left + ",0)")
         .call(yAx)
 
       canvas
         .append('g')
         .attr('class', 'spark-x axis')
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(" + margins.left + "," + height + ")")
         .call(xAx)
 
       canvas.selectAll(".success").data(d3.entries(csv))
         .enter()
         .append("rect")
+        .attr("transform", "translate(" + margins.left + ",0)")
         .attr('class', 'success')
         .attr("x", function (d) { return x(d.key) })
         .attr("width", x.bandwidth()/2)
@@ -88,6 +90,7 @@ export default {
       var bar = canvas.selectAll(".fail").data(d3.entries(csv))
         .enter()
         .append("rect")
+        .attr("transform", "translate(" + margins.left + ",0)")
         .attr("class", "fail")
         .attr("x", function(d) { return x(d.key) + x.bandwidth()/2 })
         .attr("width", x.bandwidth()/2)
