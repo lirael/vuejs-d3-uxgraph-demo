@@ -16,7 +16,7 @@ export default {
   name: 'sparklines',
   data () {
     return {
-      msg: 'Bar charts',
+      msg: 'Vertical bar charts',
       data: [
         { "period": "January", "fail": 23, "success": 57 },
         { "period": "February", "fail": 23, "success": 78 },
