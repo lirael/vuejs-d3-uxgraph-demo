@@ -38,12 +38,13 @@ export default {
         .attr("viewBox", "0 0 500 400")
         .classed("svg-content", true)
         .append("svg:g")
+
       var x = d3.scaleLinear().domain([0, data.length]).range([0, width])
       var y = d3.scaleLinear().domain([0, 10]).range([height, 0])
 
       // Define the axes
       var xAx = d3.axisBottom(x)
-      var yAx = d3.axisLeft(y).ticks(4)
+      var yAx = d3.axisLeft(y)
 
       var line = d3.line()
         .x(function (d, i) {
@@ -70,7 +71,7 @@ export default {
       canvas
         .append('path')
         .attr('class', 'spark')
-        .attr("transform", "translate(" + margins.left + "," + margins.bottom + ")")
+        .attr("transform", "translate(" + margins.left + ",0)")
         .attr("d", line(data))
     }
   }
