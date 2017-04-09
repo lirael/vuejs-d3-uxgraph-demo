@@ -35,7 +35,7 @@
 <script>
 import Sparklines from './SparklinesContainer.vue'
 import Linecharts from './LinechartsContainer.vue'
-import Barcharts from './Barcharts.vue'
+import Barcharts from './BarchartsContainer.vue'
 import HorizontalBarcharts from './HorBarcharts.vue'
 export default {
   name: 'hello',

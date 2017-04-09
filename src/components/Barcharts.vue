@@ -1,11 +1,5 @@
 <template>
-  <div id="linecharts">
-    <h2>{{ msg }}</h2>
-    <div class="col-sm-6 col-sm-offset-3" style="">
-      <div class="svg-line-container" id="bCanvas">
-      </div>
-    </div>
-  </div>
+  <div class="svg-line-container" id="bCanvas"></div>
 </template>
 
 <script>
@@ -13,23 +7,39 @@ import * as d3 from 'd3'
 import $ from 'jquery'
 
 export default {
-  name: 'sparklines',
-  data () {
-    return {
-      msg: 'Vertical bar charts',
-      data: [
-        { "period": "West", "fail": 23, "success": 57 },
-        { "period": "East", "fail": 23, "success": 78 },
-        { "period": "North", "fail": 64, "success": 96 },
-        { "period": "South", "fail": 21, "success": 54 }
-      ]
+  name: 'barcharts',
+  props: {
+    labelOne: {
+      default : 'Fail'
+    },
+    colorOne: {
+      default: '#4682b4'
+    },
+    labelTwo: {
+      default : 'Success'
+    },
+    colorTwo: {
+      default: '#9902b4'
+    },
+    data: {
+      default: function () { 
+        return [
+          { "period": "West", "fail": 23, "success": 57 },
+          { "period": "East", "fail": 23, "success": 78 },
+          { "period": "North", "fail": 64, "success": 96 },
+          { "period": "South", "fail": 21, "success": 54 }
+        ]
+      }
     }
   },
+  data () {
+    return {}
+  },
   mounted () {
-    this.createLine('#bCanvas', this.data)
+    this.createLine('#bCanvas', this.data, this.labelOne, this.colorOne, this.labelTwo, this.colorTwo)
   },
   methods: {
-    createLine(id, csv) {
+    createLine(id, csv, labelOne, colorOne, labelTwo, colorTwo) {
       var canvasWidth = 500
       var canvasHeight = 400
       var margins = {top: 0, bottom: 30, left: 25, rigth: 0}
@@ -90,7 +100,48 @@ export default {
         .attr("width", x.bandwidth()/2)
         .attr("y", function(d) { return y(d.value.fail); })
         .attr("height", function(d) { return height - y(d.value.fail); })
-        .style( "fill", "#d3d3d3" );
+        .style( "fill", "#d3d3d3" )
+
+      canvas
+        .append("text")
+        .attr("class", "spark-text")
+        .attr("y", y(d3.max(csv)))
+        .attr("x", width / 2 - 40)
+        .text(labelOne)
+        .attr("fill", "black")
+      canvas
+        .append("text")
+        .attr("class", "spark-text")
+        .attr("y", y(d3.max(csv)))
+        .attr("x", width / 2 + 40)
+        .text(labelTwo)
+        .attr("fill", "black")
+    }
+  },
+  watch: {
+    labelOne: {
+      handler: function (val, oldVal) {
+        d3.select('#bCanvas svg').remove()
+        this.createLine('#bCanvas', this.data, val, this.colorOne, this.labelTwo, this.colorTwo)
+      }
+    },
+    colorOne: {
+      handler: function (val, oldVal) {
+        d3.select('#bCanvas svg').remove()
+        this.createLine('#bCanvas', this.data, this.labelOne, val, this.labelTwo, this.colorTwo)
+      }
+    },
+    labelTwo: {
+      handler: function (val, oldVal) {
+        d3.select('#bCanvas svg').remove()
+        this.createLine('#bCanvas', this.data, this.labelOne, this.colorOne, val, this.colorTwo)
+      }
+    },
+    colorTwo: {
+      handler: function (val, oldVal) {
+        d3.select('#bCanvas svg').remove()
+        this.createLine('#bCanvas', this.data, this.labelOne, this.colorOne, this.labelTwo, val)
+      }
     }
   }
 }
