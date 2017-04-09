@@ -34,7 +34,7 @@
 
 <script>
 import Sparklines from './SparklinesContainer.vue'
-import Linecharts from './Linecharts.vue'
+import Linecharts from './LinechartsContainer.vue'
 import Barcharts from './Barcharts.vue'
 import HorizontalBarcharts from './HorBarcharts.vue'
 export default {
@@ -91,7 +91,7 @@ button.expanded{
   width: 100%;
   margin-top: 1.45em;
 }
-h2{
-  margin-top: 50px;
+h1{
+  margin-top: 100px;
 }
 </style>

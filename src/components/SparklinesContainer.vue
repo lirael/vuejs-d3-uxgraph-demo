@@ -1,6 +1,6 @@
 <template>
   <div id="sparklines">
-    <h2>{{ msg }}</h2>
+    <h1>{{ msg }}</h1>
     <div class="row">
       <div class="col-sm-2 col-sm-offset-2">
         Label: <input v-model="label" :placeholder="label">
@@ -34,8 +34,11 @@
     </div>
     <div class="row">
       <div class="col-sm-4 col-sm-offset-4">
-      Embed following code to get this graph:
-      <textarea class="html-viewer" disabled rows="4"><sparklines color="{{color}}" label="{{label}}" circle="{{circle}}" data="{{data}}"></sparklines> </textarea>
+      Embed following code to get this sparkline:
+      <textarea class="html-viewer" disabled rows="4"><sparklines color="{{color}}" 
+  label="{{label}}" 
+  circle="{{circle}}">
+</sparklines> </textarea>
       </div>
     </div>
   </div>
@@ -79,7 +82,8 @@ export default {
         d3.select('#sCanvas svg').remove()
         var child = this.$refs.sparks
         child.createSparkline('#sCanvas', this.data, val, this.circle, this.color)
-      },
+      }
+    },
     color: {
       handler: function (val, oldVal) {
         d3.select('#sCanvas svg').remove()
@@ -93,12 +97,6 @@ export default {
         var child = this.$refs.sparks
         child.createSparkline('#sCanvas', this.data, this.label, val, this.color)
       }
-    },
-    data: {
-      handler: function (val, oldVal) {
-        console.log("njk")
-      }
-    }
     }
   }
 }
