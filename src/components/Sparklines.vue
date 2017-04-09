@@ -1,34 +1,5 @@
 <template>
-  <div id="sparklines">
-    <h2>{{ msg }}</h2>
-    <div class="row">
-      <div class="col-sm-2 col-sm-offset-2">
-        Label: <input v-model="label" placeholder={this.label}>
-      </div>
-      <div class="col-sm-2">
-        Color: <input v-model="color" placeholder={this.color}>
-      </div>
-      <div class="col-sm-2">
-        <button v-if="circle" class="button expanded" @click="circle = false">
-          Hide red dot
-        </button>
-        <button v-if="!circle" class="button expanded" @click="circle = true">
-          Show red dot
-        </button>
-      </div>
-      <div class="col-sm-2">
-        <button class="button expanded" @click="newData()" >
-          New random data
-        </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-4"  style="height:150px">
-      </br></br>
-        <div class="svg-container" id="sCanvas"></div>
-      </div>
-    </div>
-  </div>
+  <div class="svg-container" id="sCanvas"></div>
 </template>
 
 <script>
@@ -37,14 +8,23 @@ import $ from 'jquery'
 
 export default {
   name: 'sparklines',
-  data () {
-    return {
-      msg: 'Sparklines',
-      label: 'Daily defects',
-      color: '#4682b4',
-      circle: true,
-      data: [0, 2, 3, 5, 4, 10, 4, 11, 10, 15, 4, 11, 10, 9, 5, 11, 15, 9, 10, 11, 15]
+  props: {
+    label: {
+      default : 'Daily defects'
+    },
+    color: {
+      default: '#4682b4'
+    },
+    circle: {
+      default: true
+    },
+    data: {
+      default: function () { 
+        return [0, 2, 3, 5, 4, 10, 4, 11, 10, 15, 4, 11, 10, 9, 5, 11, 15, 9, 10, 11, 15] }
     }
+  },
+  data () {
+    return {}
   },
   mounted () {
     this.createSparkline('#sCanvas', this.data, this.label, this.circle, this.color)

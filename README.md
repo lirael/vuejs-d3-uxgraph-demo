@@ -1,5 +1,5 @@
-# vuejs-d3-ux
-## Vue / D3 UX graphs components
+# UXgraph
+## vuejs-d3-uxgraph
 
 > Live demo : https://lirael.github.io/vuejs-d3-uxgraph/
 

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Sparklines from './Sparklines.vue'
+import Sparklines from './SparklinesContainer.vue'
 import Linecharts from './Linecharts.vue'
 import Barcharts from './Barcharts.vue'
 import HorizontalBarcharts from './HorBarcharts.vue'
@@ -47,7 +47,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to the Vue / D3 UX graph construction demo'
+      msg: 'Welcome to the UXgraph demo'
     }
   }
 }
@@ -57,6 +57,7 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
+  margin-top: 0;
 }
 
 ul {
@@ -73,8 +74,12 @@ a {
   color: #42b983;
 }
 </style>
+
 <style type="text/css">
 .settings input, settings .button{
+}
+.html-viewer{
+  width: 100%;
 }
 button{
   background-color: #00897b;
@@ -85,5 +90,8 @@ button{
 button.expanded{
   width: 100%;
   margin-top: 1.45em;
+}
+h2{
+  margin-top: 50px;
 }
 </style>
