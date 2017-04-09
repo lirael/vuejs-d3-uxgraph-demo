@@ -8,7 +8,6 @@
       <li><a href="/">Line chart</a></li>
       <li><a href="/">Vertical bar chart</a></li>
       <li><a href="/">Horizontal bar chart</a></li>
-      <li><a href="/">Staked bar chart</a></li>
 
     </ul>
     <h2>Ecosystem</h2>

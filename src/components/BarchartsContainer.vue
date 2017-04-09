@@ -11,7 +11,7 @@
           :labelTwo="labelTwo">
         </barcharts>
       </div>
-      <div class="col-sm-2 col-sm-offset-1">
+      <div class="col-sm-3">
       <br></br>
         <b> Settings </b>
         <div class="">
@@ -30,8 +30,8 @@
         </br>
           Color 2: <input v-model="colorTwo" :placeholder="colorTwo">
         </div>
-        <div style="display:none">
-          <button class="button expanded" @click="generate()" >
+        <div style="">
+          <button class="button expanded" style="width:80%; display:none" @click="generate()" >
             New random data
           </button>
         </div>

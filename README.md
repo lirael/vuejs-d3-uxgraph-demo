@@ -1,7 +1,15 @@
-# UXgraph
-## vuejs-d3-uxgraph
+<div align="center">
+  <img width="256" heigth="256" src="/src/assets/uxgraph.png" alt="uxgraph logo">
+</div>
 
-> Live demo : https://lirael.github.io/vuejs-d3-uxgraph/
+# vuejs-d3-uxgraph-demo
+
+> Example of UXgraph usage
+
+## Live demo and library code
+
+- Demo: https://lirael.github.io/vuejs-d3-uxgraph-demo/
+- Library: https://github.com/lirael/vuejs-d3-uxgraph/
 
 ## Build Setup
 

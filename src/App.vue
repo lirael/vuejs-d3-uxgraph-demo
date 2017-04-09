@@ -3,7 +3,7 @@
     <div class="row">
       <img class="col-sm-2 col-sm-offset-3" src="./assets/logo.png"> 
       <img class="col-sm-2" src="./assets/d3.png">
-      <img class="col-sm-2" src="./assets/ux.png">
+      <img class="col-sm-3" style="margin-top:-25px;" src="./assets/uxgraph.png">
     </div>
     <div class="row">
       <router-view></router-view>

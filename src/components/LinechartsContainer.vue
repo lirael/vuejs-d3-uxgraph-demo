@@ -2,10 +2,10 @@
   <div id="lines">
     <h1>{{ msg }}</h1>
     <div class="row">
-      <div class="col-sm-2 col-sm-offset-3">
+      <div class="col-sm-2 col-sm-offset-4">
         Label: <input v-model="label" :placeholder="label">
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2" style="display:none">
         Color: <input v-model="color" :placeholder="color">
       </div>
       <div class="col-sm-2">

@@ -89,7 +89,7 @@ export default {
         .attr("width", x.bandwidth()/2)
         .attr("y", function (d) { return y(d.value.success) })
         .attr("height", function (d) { return height - y(d.value.success) })
-        .style( "fill", "steelblue" )
+        .style( "fill", colorOne )
 
       var bar = canvas.selectAll(".fail").data(d3.entries(csv))
         .enter()
@@ -100,8 +100,16 @@ export default {
         .attr("width", x.bandwidth()/2)
         .attr("y", function(d) { return y(d.value.fail); })
         .attr("height", function(d) { return height - y(d.value.fail); })
-        .style( "fill", "#d3d3d3" )
+        .style( "fill", colorTwo )
 
+      canvas
+        .append("rect")
+        .attr("y", y(d3.max(csv)))
+        .attr("x", width / 2 - 50)
+        .attr("transform", "translate(0,-8)")
+        .attr("width", 8)
+        .attr("height", 8)
+        .style( "fill", colorOne )
       canvas
         .append("text")
         .attr("class", "spark-text")
@@ -109,11 +117,20 @@ export default {
         .attr("x", width / 2 - 40)
         .text(labelOne)
         .attr("fill", "black")
+
+      canvas
+        .append("rect")
+        .attr("y", y(d3.max(csv)))
+        .attr("x", width / 2 + 50)
+        .attr("transform", "translate(0,-8)")
+        .attr("width", 8)
+        .attr("height", 8)
+        .style( "fill", colorTwo )
       canvas
         .append("text")
         .attr("class", "spark-text")
         .attr("y", y(d3.max(csv)))
-        .attr("x", width / 2 + 40)
+        .attr("x", width / 2 + 60)
         .text(labelTwo)
         .attr("fill", "black")
     }
